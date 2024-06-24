@@ -1,5 +1,5 @@
 {
-  "name": "template-webpack-eslint-prettier",
+  "name": "gif-search",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "server": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ali Raza",
   "license": "ISC",
   "dependencies": {
     "css-loader": "^6.10.0",
