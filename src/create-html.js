@@ -1,6 +1,7 @@
 export default class CreateHtml {
   static initializeHtml() {
     this.createImage();
+    this.createGifButton();
   }
 
   static createImage() {
@@ -11,5 +12,15 @@ export default class CreateHtml {
 
     const body = document.querySelector("body");
     body.appendChild(image);
+  }
+
+  static createGifButton() {
+    const button = document.createElement("button");
+    button.textContent = "New GIF";
+    button.classList.add("gif-button");
+    button.setAttribute("id", "gif-button");
+
+    const body = document.querySelector("body");
+    body.appendChild(button);
   }
 }

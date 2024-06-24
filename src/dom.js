@@ -4,6 +4,6 @@ import Controller from "./controller";
 export default class DOMManager {
   static initialize() {
     CreateHtml.initializeHtml();
-    Controller.fetchGif();
+    Controller.initGifButton();
   }
 }
