@@ -28,6 +28,7 @@ export default class CreateHtml {
 
   static createSearchForm() {
     const searchForm = document.createElement("div");
+    searchForm.classList.add("search-form");
     searchForm.setAttribute("id", "search-form");
     searchForm.setAttribute("action", "#");
     searchForm.setAttribute("method", "post");
