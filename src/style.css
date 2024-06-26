@@ -43,13 +43,28 @@ body {
   justify-content: center;
   align-items: center;
   gap: 8px;
+  margin-bottom: 10px;
 }
 
 .search {
-  border: 1px solid #aaa;
   width: 15%;
+  position: relative;
+}
+
+.input {
+  border: 1px solid #aaa;
+  width: 100%;
   border-radius: 5px;
   padding: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+  position: absolute;
+  left: 1px;
+  bottom: -21px;
+  white-space: nowrap;
 }
 
 .submit {

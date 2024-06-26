@@ -1,3 +1,5 @@
+import Validate from "./validation";
+import errorImg from "./assets/imgs/error.jpg";
 require("dotenv").config();
 
 export default class Controller {
@@ -11,21 +13,16 @@ export default class Controller {
 
   static async searchGif() {
     const img = document.getElementById("gif");
-    const searchInput = document.getElementById("search");
-    const gifName = searchInput.value.trim().replace(/ /g, "_");
+    const gifName = Validate.getInputFromSearch();
 
-    if (gifName === "") {
-      alert("Please enter a valid GIF search.");
-      return;
-    } else if (gifName === img.getAttribute("data-img")) {
-      alert("Please enter a new GIF search.");
+    if (!Validate.validateInput(gifName)) {
       return;
     }
 
-    img.setAttribute("data-img", `${gifName}`);
     try {
       const gifUrl = await Controller.fetchGif(gifName);
       img.src = gifUrl;
+      img.setAttribute("data-img", `${gifName}`);
     } catch (error) {
       console.log(`Error: ${error}`);
     }
@@ -38,6 +35,12 @@ export default class Controller {
         { mode: "cors" },
       );
       const imgData = await response.json();
+      console.log(imgData);
+      if (!Validate.validateAPI(imgData)) {
+        return errorImg;
+      }
+
+      const img = document.getElementById("gif");
       return imgData.data.images.original.url;
     } catch (error) {
       console.log(`Error: ${error}`);
@@ -47,8 +50,10 @@ export default class Controller {
   static async changeGif() {
     const img = document.getElementById("gif");
     const gifName = img.getAttribute("data-img");
-    if (!gifName) {
-      alert("Please enter a new GIF search.");
+    const imgUrl = img.src;
+    console.log(imgUrl);
+
+    if (!Validate.validateNewGif(gifName, imgUrl)) {
       return;
     }
 

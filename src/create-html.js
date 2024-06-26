@@ -33,19 +33,31 @@ export default class CreateHtml {
     searchForm.setAttribute("action", "#");
     searchForm.setAttribute("method", "post");
 
+    const searchBar = document.createElement("div");
+    searchBar.classList.add("search");
+    searchBar.setAttribute("id", "search");
+
     const input = document.createElement("input");
-    input.classList.add("search");
-    input.setAttribute("id", "search");
+    input.classList.add("input");
+    input.setAttribute("id", "input");
     input.setAttribute("type", "text");
     input.setAttribute("placeholder", "Search..");
-    input.setAttribute("name", "search");
+    input.setAttribute("name", "input");
+
+    const errormsg = document.createElement("span");
+    errormsg.classList.add("error");
+    errormsg.setAttribute("id", "error");
+    errormsg.setAttribute("aria-live", "polite");
+
+    searchBar.appendChild(input);
+    searchBar.appendChild(errormsg);
 
     const button = document.createElement("button");
     button.textContent = "Search";
     button.classList.add("button", "submit");
     button.setAttribute("id", "submit-button");
 
-    searchForm.appendChild(input);
+    searchForm.appendChild(searchBar);
     searchForm.appendChild(button);
 
     const header = document.getElementById("header");
