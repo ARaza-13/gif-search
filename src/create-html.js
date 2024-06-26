@@ -1,3 +1,5 @@
+import placeholder from "./assets/imgs/placeholder.png";
+
 export default class CreateHtml {
   static initializeHtml() {
     this.createPageElements();
@@ -77,7 +79,7 @@ export default class CreateHtml {
     const image = document.createElement("img");
     image.classList.add("gif");
     image.setAttribute("id", "gif");
-    image.setAttribute("src", "#");
+    image.setAttribute("src", placeholder);
 
     const imageFrame = document.getElementById("image-frame");
     imageFrame.appendChild(image);

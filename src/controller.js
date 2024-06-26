@@ -35,7 +35,6 @@ export default class Controller {
         { mode: "cors" },
       );
       const imgData = await response.json();
-      console.log(imgData);
       if (!Validate.validateAPI(imgData)) {
         return errorImg;
       }
@@ -51,7 +50,6 @@ export default class Controller {
     const img = document.getElementById("gif");
     const gifName = img.getAttribute("data-img");
     const imgUrl = img.src;
-    console.log(imgUrl);
 
     if (!Validate.validateNewGif(gifName, imgUrl)) {
       return;

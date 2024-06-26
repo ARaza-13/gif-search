@@ -53,11 +53,13 @@ export default class Validate {
 
   static validateNewGif(gifName, imgUrl) {
     const errorMsg = document.getElementById("error");
-    console.log(gifName);
     if (!gifName) {
       errorMsg.textContent = "Please first search for a GIF.";
       return false;
-    } else if (imgUrl.includes("localhost") && imgUrl.includes("error.jpg")) {
+    } else if (
+      imgUrl.includes("localhost") &&
+      (imgUrl.includes("error.jpg") || imgUrl.includes("placeholder.png"))
+    ) {
       errorMsg.textContent = "Please enter a valid GIF search first.";
       return false;
     }
