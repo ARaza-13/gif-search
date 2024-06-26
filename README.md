@@ -4,3 +4,5 @@ The method for retrieving the GIF data is made possible through https://giphy.co
 The logic of the app focuses heavy on asynchronous functions as well as fetching and extracting API data.
 
 GIF search rates are limited to 100 API calls per hour.
+
+Live Demo: https://araza-13.github.io/gif-search/
